@@ -1,20 +1,6 @@
 // Matthew Lacey
 // CSCI 61 HW01
 
-// Write a C++ program that can take in a mathematical expression in "infix" 
-// or "prefix" notation and convert it to the other notation. If you do not 
-// remember infix and prefix notations from math class, the following link 
-// can help refresh your memory: http://www.cs.man.ac.uk/~pjj/cs212/fix.html
-
-// Notes:
-
-// 1. Use the STL <stack> class. No need to create your own stack class/
-//    implementation.
-// 2. Create separate functions such as prefixToInfix() and infixToPrefix() 
-//    in order to separate the tasks.
-// 3. You need not evaluate the expression's value. However, it may be  
-//    the only way to test that your code is working.
-
 #include <iostream>
 #include <stack>      // Provides the stack template class
 #include <string>
