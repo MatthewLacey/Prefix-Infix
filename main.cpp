@@ -51,24 +51,18 @@ string infixToPrefix(string infixS) {
 			}
 			buffer.push(num);
 		}
-		// else if the current character is a '(' or its order of
-		// operation is greater than that of the operator on top of
-		// the operator stack, or the operator stack is empty, add
-		// the current character to the operator stack
 		else if ( infix.top() == "(" || ops.empty() || pemdas(infix.top()) > pemdas(ops.top()) ){
 			ops.push(infix.top());
 			infix.pop();
 		}
-		// else if the current char is a ')', add operators off the ops
-		// stack until a '(' is encountered
 		else if ( infix.top() == ")"){
 			while(ops.top() != "("){
-				// the following six lines of code is repeated throughout
-				// this function. (because nested functions arent allowed
-				// for some reason) They take the last two "blocks" being
-				// operated on by the operator from the buffer stack and 
-				// flip them around. This ensures that something like
-				// C / D translates to /CD instead of /DC
+				/* the following six lines of code is repeated throughout
+				this function. (because nested functions arent allowed
+				for some reason) They take the last two "blocks" being
+				operated on by the operator from the buffer stack and 
+				flip them around. This ensures that something like
+				C / D translates to /CD instead of /DC */
 				string operand1 = buffer.top();
 				buffer.pop();
 				string operand2 = buffer.top();
@@ -79,15 +73,8 @@ string infixToPrefix(string infixS) {
 			ops.pop(); // remove the '(' from the stack
 			infix.pop();
 		}
-		// else if the order of operation of the current char is less
-		// than or equal to the order of op at the top of the operator
-		// stack, then continuously add operators off the ops stack
-		// until the order of operation for the current char is greater
-		// than that of the operator on top of the operator stack. Then
-		// push the current char onto the operator stack
 		else if ( pemdas(infix.top()) <= pemdas(ops.top()) ){
 			while(!ops.empty() && pemdas(infix.top()) <= pemdas(ops.top())){
-				// see comment on line 63
 				string operand1 = buffer.top();
 				buffer.pop();
 				string operand2 = buffer.top();
@@ -100,10 +87,7 @@ string infixToPrefix(string infixS) {
 		}
 
 	}
-	// if the ops stack is not empty, continuously add ops stack values
-	// to the buffer stack until the ops stack is empty
 	while(!ops.empty()){
-		// see comment on line 63
 		string operand1 = buffer.top();
 		buffer.pop();
 		string operand2 = buffer.top();
@@ -111,8 +95,6 @@ string infixToPrefix(string infixS) {
 		buffer.push(operand1 + " " + operand2 + " " + ops.top());
 		ops.pop();
 	}
-	// assigns the value in buffer to the returned prefix string and
-	// reverses it so that it is in proper prefix order
 	prefix = reverseStr(buffer.top());
 	return prefix;
 }
