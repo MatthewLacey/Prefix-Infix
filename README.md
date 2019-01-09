@@ -4,7 +4,7 @@ A program that asks the user to enter a math expression in infix or prefix notat
 
 To compile: `g++ -std=c++11 main.cpp -o prefix-infix`
 
-##Notes:
+## Notes:
 - All symbols other than the following operators (,),^,*,/,+,- will be considered operands
 
 - User must enter a valid mathematical expression in either infix or prefix notation
@@ -13,7 +13,7 @@ To compile: `g++ -std=c++11 main.cpp -o prefix-infix`
 
 - Utilizes stacks for implementation
 
-##Sample Test Cases:
+## Sample Test Cases:
 Order of operations
 ```
 	       Infix: 1*2+3/4
@@ -46,5 +46,5 @@ Parentheses outside expression
 	       Infix: ((1*2)+(3/4))
 	       Prefix: +*12/34
 ```
-##Output:
+## Output:
 ![Example Output](https://user-images.githubusercontent.com/18524488/50881629-14b66d00-1397-11e9-8fb0-f5312a5aac6c.png)
